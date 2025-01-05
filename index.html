@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1">
+		<title>Login</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+		<style>
+    body {
+        background-image: url('https://www.hdwallpapers.in/download/wood_bridge_between_green_trees_branches_forest_nature_background_4k_hd_nature-1920x1080.jpg') !important;
+        background-size: cover !important; /* Ensure the image covers the whole background */
+        background-position: center !important; /* Center the image */
+        background-repeat: no-repeat !important; /* Prevent the image from repeating */
+        background-attachment: fixed !important; /* Keep the background fixed when scrolling */
+    }
+</style>
+
+
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	</head>
+	<body>
+		 <div style="display: flex; justify-content: center; margin-bottom: 20px; margin-top: 10px;">
+        <div style="color: white; text-align: center; font-size: 2.5rem; font-weight: bold; background-color: green; padding: 20px 40px; border-radius: 10px; box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); max-width: 80%; clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);">
+            Welcome to Eco-mmerce
+        </div>
+    </div>
+
+		<div class="login">
+
+			<h1>Login</h1>
+
+			<div class="links">
+				<a href="{{ url_for('login') }}" class="active">Login</a>
+				<a href="{{ url_for('register') }}">Register</a>
+			</div>
+
+			<form class="ajax-form" action="" method="post">
+
+				<label for="username">
+					<i class="fas fa-user"></i>
+				</label>
+				<input type="text" name="username" placeholder="Username" id="username" required>
+
+				<label for="password">
+					<i class="fas fa-lock"></i>
+				</label>
+				<input type="password" name="password" placeholder="Password" id="password" required>
+
+				<label id="rememberme">
+					<input type="hidden" name="rememberme">
+				</label>
+				<a href="{{ url_for('forgotpassword') }}">Forgot Password?</a>
+
+				<input type="hidden" name="token" value="{{ token }}">
+
+				<div class="g-recaptcha" data-sitekey="6LefHRoqAAAAAF7uL9aVtDDT9DV8wIrCTHym3cSN"></div>
+
+				<div class="msg">{{ msg }}</div>
+
+				<input type="submit" value="Login">
+
+			</form>
+
+		</div>
+		<script src="{{ url_for('static', filename='script.js') }}"></script>
+	</body>
+</html>
